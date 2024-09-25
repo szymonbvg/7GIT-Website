@@ -1,0 +1,23 @@
+.github-login {
+  display: flex;
+  height: auto;
+  width: auto;
+  gap: 10px;
+  padding: 5px 15px;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 8px;
+}
+
+.github-login img {
+  min-width: 3rem;
+  max-width: 3rem;
+  filter: invert(1);
+}
+
+.github-login p {
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
