@@ -31,9 +31,9 @@ export default function EmoteSet() {
           loading: true,
         };
       });
-      fetch(`${import.meta.env.VITE_7GIT_BACKEND_URL}/v1/emotes/update`, {
+      fetch(`${import.meta.env.VITE_7GIT_BACKEND_URL}/v1/update/emote_set`, {
         method: "POST",
-        body: JSON.stringify({ type: "set", data: emotes }),
+        body: JSON.stringify({ data: emotes }),
         headers: { "Content-Type": "application/json", "X-Auth-Token": token },
       }).then((res) => {
         setState((prev) => {
@@ -64,9 +64,9 @@ export default function EmoteSet() {
 
   useEffect(() => {
     if (payload) {
-      fetch(`${import.meta.env.VITE_7GIT_BACKEND_URL}/v1/emotes/${payload.login}`)
+      fetch(`${import.meta.env.VITE_7GIT_BACKEND_URL}/v1/users/${payload.login}/emotes`)
         .then((res) => res.json())
-        .then((parsed) => {
+        .then((parsed: { emotes: EmoteSetType }) => {
           setEmotes(parsed.emotes);
         });
     }

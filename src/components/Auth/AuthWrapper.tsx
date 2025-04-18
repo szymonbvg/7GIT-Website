@@ -41,7 +41,7 @@ export default function AuthWrapper(props: AuthWrapperProps) {
         headers: { "Content-Type": "application/json" },
       })
         .then((res) => res.json())
-        .then((parsed) => {
+        .then((parsed: { token: string }) => {
           setStatus(undefined);
           if (parsed.token) {
             localStorage.setItem("7git-token", parsed.token);
